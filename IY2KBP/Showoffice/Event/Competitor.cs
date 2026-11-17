@@ -55,23 +55,15 @@ namespace Event
                 OnPropertyChanged(nameof(Category));
             }
         }
-        public string Info
+        public AgeGroup AgeGroup
         {
             get;
             set
             {
                 field = value;
-                OnPropertyChanged(nameof(Info));
-            }
-        } = String.Empty;
-        public string? AgeGroup
-        {
-            get;
-            set { 
-                field = value;
                 OnPropertyChanged(nameof(AgeGroup));
             }
-        }
+        } = AgeGroup.None;
         public int StartFee {
             get;
             set { 
@@ -96,106 +88,47 @@ namespace Event
             }
         }
 
-        //Eredmény nélkül és korcsoport nélkül
-        public Competitor(int verificationNumber, string name, int startNumber, string horse, string association,
-            EvaluationResult result, string category, int startFee, int moneyPaid, string info)
-        {
-            this.VerificationNumber = verificationNumber;
-            this.Name = name;
-            this.StartNumber = startNumber;
-            this.Horse = horse;
-            this.Association = association;
-            Result = result;
-            this.Category = category;
-            this.StartFee = startFee;
-            this.AgeGroup = null;
-            this.MoneyPaid = moneyPaid;
-            this.Info = info;
-        }
-
-        //Eredmény nélkül és korcsoport nélkül, checkouthoz
         public Competitor(int verificationNumber, string name, int startNumber, string horse, string association,
             EvaluationResult result, string category, int startFee, int moneyPaid)
         {
-            this.VerificationNumber = verificationNumber;
-            this.Name = name;
-            this.StartNumber = startNumber;
-            this.Horse = horse;
-            this.Association = association;
-            this.Category = category;
+            VerificationNumber = verificationNumber;
+            Name = name;
+            StartNumber = startNumber;
+            Horse = horse;
+            Association = association;
             Result = result;
-            this.StartFee = startFee;
-            this.AgeGroup = null;
-            this.MoneyPaid = moneyPaid;
+            Category = category;
+            StartFee = startFee;
+            MoneyPaid = moneyPaid;
         }
 
-        //Eredmény nélkül, de korcsoprttal
         public Competitor(int verificationNumber, string name, int startNumber, string horse, string association,
-            EvaluationResult result, string category, int startFee, int moneyPaid, string ageGroup, string info)
+            EvaluationResult result, string category, int startFee, int moneyPaid, AgeGroup ageGroup)
         {
-            this.VerificationNumber = verificationNumber;
-            this.Name = name;
-            this.StartNumber = startNumber;
-            this.Horse = horse;
-            this.Association = association;
-            this.Category = category;
+            VerificationNumber = verificationNumber;
+            Name = name;
+            StartNumber = startNumber;
+            Horse = horse;
+            Association = association;
+            Category = category;
             Result = result;
-            this.StartFee = startFee;
-            this.AgeGroup = ageGroup;
-            this.MoneyPaid = moneyPaid;
-            this.Info = info;
+            StartFee = startFee;
+            AgeGroup = ageGroup;
+            MoneyPaid = moneyPaid;
         }
-
-        //Eredménnyel
-        public Competitor(int verificationNumber, string name, int startNumber, string horse, string association,
-            EvaluationResult result, string category, int startFee, int moneyPaid, string? ageGroup, double timeResult, double pointResult, string info, int placement)
-        {
-            this.VerificationNumber = verificationNumber;
-            this.Name = name;
-            this.StartNumber = startNumber;
-            this.Horse = horse;
-            this.Association = association;
-            this.Category = category;
-            this.StartFee = startFee;
-            this.AgeGroup = ageGroup;
-            Result = result;
-            this.MoneyPaid = moneyPaid;
-            this.Info = info;
-            this.Placement = placement;
-        }
-
-        //Eredménnyel, Info nélkül checkouthoz
-        public Competitor(int verificationNumber, string name, int startNumber, string horse, string association,
-            EvaluationResult result, string category, int startFee, int moneyPaid, string? ageGroup, double timeResult, double pointResult)
-        {
-            this.VerificationNumber = verificationNumber;
-            this.Name = name;
-            this.StartNumber = startNumber;
-            this.Horse = horse;
-            this.Association = association;
-            this.Category = category;
-            this.StartFee = startFee;
-            this.AgeGroup = ageGroup;
-            Result = result;
-            this.MoneyPaid = moneyPaid;
-        }
-
-        public override bool Equals(object? obj)
-        {
-            return Equals(obj as Competitor);
-        }
-
-        public override int GetHashCode()
-        {
-            return HashCode.Combine(VerificationNumber, StartNumber);
-        }
-
         public bool Equals(Competitor? other)
         {
             if (other is null) return false;
             return VerificationNumber == other.VerificationNumber &&
                    StartNumber == other.StartNumber;
         }
-
+        public override bool Equals(object? obj)
+        {
+            return Equals(obj as Competitor);
+        }
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(VerificationNumber, StartNumber);
+        }
     }
 }
