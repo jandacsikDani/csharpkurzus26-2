@@ -4,6 +4,7 @@ namespace Event;
 
 public enum AgeGroup
 {
+    [Description("Nincs")]
     None,
     [Description("I.kcs")]
     I,

@@ -39,16 +39,18 @@ partial class Menu
         // 
         // ViewStartlist
         // 
+        ViewStartlist.Enabled = false;
         ViewStartlist.Location = new Point(12, 69);
         ViewStartlist.Name = "ViewStartlist";
         ViewStartlist.Size = new Size(97, 40);
         ViewStartlist.TabIndex = 0;
         ViewStartlist.Text = "Startlista";
         ViewStartlist.UseVisualStyleBackColor = true;
-        ViewStartlist.Click += this.ViewStartlist_Click;
+        ViewStartlist.Click += ViewStartlist_Click;
         // 
         // ViewResults
         // 
+        ViewResults.Enabled = false;
         ViewResults.Location = new Point(132, 69);
         ViewResults.Name = "ViewResults";
         ViewResults.Size = new Size(97, 40);
@@ -67,6 +69,7 @@ partial class Menu
         // 
         // SaveEvent
         // 
+        SaveEvent.Enabled = false;
         SaveEvent.Location = new Point(12, 185);
         SaveEvent.Name = "SaveEvent";
         SaveEvent.Size = new Size(97, 40);
@@ -76,6 +79,7 @@ partial class Menu
         // 
         // ExportResults
         // 
+        ExportResults.Enabled = false;
         ExportResults.Location = new Point(132, 129);
         ExportResults.Name = "ExportResults";
         ExportResults.Size = new Size(97, 40);
@@ -100,7 +104,7 @@ partial class Menu
         CreateEvent.TabIndex = 6;
         CreateEvent.Text = "Versenyszám létrehozása";
         CreateEvent.UseVisualStyleBackColor = true;
-        CreateEvent.Click += this.CreateEvent_Click;
+        CreateEvent.Click += CreateEvent_Click;
         // 
         // Menu
         // 

@@ -22,7 +22,7 @@ public partial class CreateEvent : Form
     private void Create_Click(object sender, EventArgs e)
     {
         if (evaulation.SelectedItem == null) return;
-        CompetitionNumber = new CompetitionNumber(name.Text, (EvaluationType)evaulation.SelectedItem, isAgeGroup.Checked, Convert.ToDouble(baseTime.Text), Convert.ToDouble(courseLenght.Text));
+        ApplicationState.Current.CompetitionNumber = new CompetitionNumber(name.Text, (EvaluationType)evaulation.SelectedItem, isAgeGroup.Checked, Convert.ToDouble(baseTime.Text), Convert.ToDouble(courseLenght.Text));
         DialogResult = DialogResult.OK;
         Close();
     }

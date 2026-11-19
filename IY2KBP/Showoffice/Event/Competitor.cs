@@ -79,7 +79,7 @@ namespace Event
                 OnPropertyChanged(nameof(MoneyPaid));
             }
         }
-        public EvaluationResult Result { get; set; }
+        public EvaluationResult? Result { get; set; }
         public int Placement {
             get;
             set { 
@@ -89,21 +89,21 @@ namespace Event
         }
 
         public Competitor(int verificationNumber, string name, int startNumber, string horse, string association,
-            EvaluationResult result, string category, int startFee, int moneyPaid)
+            string category, AgeGroup ageGroup, EvaluationResult result)
         {
             VerificationNumber = verificationNumber;
             Name = name;
             StartNumber = startNumber;
             Horse = horse;
             Association = association;
-            Result = result;
             Category = category;
-            StartFee = startFee;
-            MoneyPaid = moneyPaid;
+            AgeGroup = ageGroup;
+            Result = result;
         }
+            
 
         public Competitor(int verificationNumber, string name, int startNumber, string horse, string association,
-            EvaluationResult result, string category, int startFee, int moneyPaid, AgeGroup ageGroup)
+            string category, AgeGroup ageGroup)
         {
             VerificationNumber = verificationNumber;
             Name = name;
@@ -111,10 +111,8 @@ namespace Event
             Horse = horse;
             Association = association;
             Category = category;
-            Result = result;
-            StartFee = startFee;
             AgeGroup = ageGroup;
-            MoneyPaid = moneyPaid;
+            Result = null;
         }
         public bool Equals(Competitor? other)
         {
